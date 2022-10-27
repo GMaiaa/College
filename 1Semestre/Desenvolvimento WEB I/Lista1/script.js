@@ -45,22 +45,14 @@ function volume(comprimento, largura, altura){
   var volume = parseInt(comprimento) * parseInt(largura) * parseInt(altura)
   alert("Volume é igual a: " + volume)
 }
-
-function genNumber(){
-
-  var number = Math.floor(Math.random() * 101)
-  
-  alert("O número gerado é: " + number)
-  return number
-  }
   
   function division(number){
-    var number = genNumber()
+
   
-    var div1 = number / 2
-    var div2 = number / 3
-    var div3 = number / 4
-    var div4 = number / 5
+    var div1 = parseFloat(number) / 2
+    var div2 = parseFloat(number) / 3
+    var div3 = parseFloat(number) / 4
+    var div4 = parseFloat(number) / 5
   
     alert(number + "/ 2 = " + div1 + "\n" 
     + number + "/ 3 = " + div2 + "\n" 
