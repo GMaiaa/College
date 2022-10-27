@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idade</title>
+  <script src="script.js" language="javascript" type="text/javascript" ></script>
+</head>
+<body>
+  <form>
+    <label for="anoNascimento">Digite seu ano de nascimento:</label>
+    <input type="number" size=200 maxlength=200 name="anoNascimento"/>
+    <label for="anoAtual"> Digite o ano atual: </label>
+    <input type="number" size=200 maxlength=200 name="anoAtual"/>
+
+    <input type="submit" value="Calcular" onclick="idade(anoNascimento.value, anoAtual.value)">
+
+  </form>
+  
+</body>
+</html>

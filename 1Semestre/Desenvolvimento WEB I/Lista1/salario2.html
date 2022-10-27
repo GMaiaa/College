@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="script.js"> </script>
+</head>
+<body>
+  <form>
+    <label for="horas"> Digite as horas trabalhadas: </label>
+    <input type="number" size=200 maxlength=200 name="horas">
+    <label for="valorHora">Digite o valor pago por hora: </label>
+    <input type="number" size=200 maxlength=200 name="valorHora">
+    <label for="desconto">Digite a porcentagem de desconto: </label>
+    <input type="number" size=200 maxlength=200 name="desconto">
+    
+    <input type="submit" value="Ver o salário a receber" onclick="pagamento(horas.value, valorHora.value, desconto.value)">
+
+  </form>
+</body>
+</html>

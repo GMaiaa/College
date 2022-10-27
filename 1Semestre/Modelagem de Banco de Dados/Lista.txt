@@ -1,0 +1,173 @@
+/*
+Lista de exercicio
+
+1- Qual a finalidade da instrução CREATE DATABASE?
+R: Criar um banco de dados.
+2- Qual a finalidade da instrução CREATE DATABASE IF NOT EXISTS?
+R: Criar um banco de dados apenas se não houver um com o mesmo nome.
+3- Qual a finalidade da instrução SHOW DATABASE?
+R: Exibe as definições de um banco de dados.
+4- Qual a finalidade da instrução USE?
+R: Responsável por informar qual é o banco de dados que queremos usar os comandos a seguir.
+5- Qual a finalidade da instrução DROP DATABASE?
+R: Descartar um banco de dados.
+6- Qual a finalidade da instrução CREATE TABLE?
+R: Criar uma tabela.
+7- Qual a finalidade da instrução SHOW TABLE?
+R: Exibe as definições de uma tabela.
+8- Qual a finalidade da instrução DESCRIBE?
+R: Descreve a estrutura de tabelas com suas colunas e tipo de dados.
+9- Qual a finalidade da instrução INSERT INTO?
+R: Inserir dados na tabela.
+10- Qual a finalidade da instrução LOAD DATA LOCAL INFILE?
+R: Importa arquivos de textos para uma tabela.
+11- Qual a finalidade da instrução SELECT com FROM?
+R: Selecionar dados de algum campo ou tabela especifico.
+12- Qual a finalidade da instrução UPDATE com SET?
+R: Atualizar dados em uma tabela.
+13- Qual a finalidade da instrução DELETE FROM?
+R: Deletar dados de uma determinada tabela
+14- Qual a finalidade da instrução ALTER TABLE?
+R: Modifica a estrutura da tabela, seja adicionando uma coluna ou modificar as propriedades de uma já existente.
+15- Quais operadores aritméticos podem ser utilizados no programa MySQL?
+R: 
++ Soma
+- 
+/
+* 
+% 
+DIV 
+16- Quais símbolos são utilizados para alterar a prioridade de cálculo matemático?
+R: Parênteses.
+17- Quais são os operadores de comparação suportados pelo programa MySQL?
+R:
+> 
+>= 
+< 
+<=  
+=  
+=! 
+18- Quais são os operadores lógicos suportados pelo programa MySQL?
+R:
+AND 
+OR
+NOT
+XOR
+19- Quais são os operadores auxiliares suportados pelo programa MySQL?
+R: 
+IS NULL
+BETWEEN
+IN
+LIKE
+20- Os operadores auxiliares podem ser utilizados com quais comandos SQL? 
+UPDATE 
+SELECT
+ALTER TABLE
+*/
+
+/* Criação do banco de dados para o exercicio*/ 
+
+CREATE DATABASE funcionarios3;
+show databases;
+use funcionarios3;
+
+create table infoFuncionarios (
+CODFUN integer not null primary key,
+PRIMEIRONOME varchar(40) not null,
+SEGUNDONOME varchar(40) not null,
+ULTIMONOME varchar(40) not null,
+DATANASCIMENTO date,
+CPF varchar(40),
+RG varchar(40),
+ENDERECO varchar(40),
+CEP varchar(40),
+CIDADE varchar(40),
+FONE varchar(40),
+CODDEPTO integer not null,
+FUNCAO char(20),
+SALARIO decimal(10,2)
+);
+
+INSERT INTO infoFuncionarios
+(CODFUN, PRIMEIRONOME, SEGUNDONOME, ULTIMONOME, DATANASCIMENTO, CPF, RG, ENDERECO, CEP, CIDADE, FONE,  CODDEPTO, FUNCAO, SALARIO) 
+VALUES (23, 'Yuri', 'Lima','Souza',null,'30303030782','52638654', 'Rua Ida Vanussi Puntel', '08150200', 'São Paulo', '11975423906',11, 'ESTAGIARIO', 1200); 
+
+INSERT INTO infoFuncionarios
+VALUES (32, 'Marcio', 'Pontes','Lucio',20040319,'60245889632','85632412', 'Rua Dolores 32', '05895632', 'São Paulo', '11989632541',37, ' EXECUTIVO DE VENDAS', 6000); 
+
+INSERT INTO infoFuncionarios
+VALUES (69, 'Fausto', 'Silva','Vera',19940630,'60351446803','526983210', 'Rua Pariparoba 143', '38325698', 'São Bernardo', '11963521458',11, 'Analista', 9000); 
+
+INSERT INTO infoFuncionarios
+VALUES (51, 'Roger', 'Flores','Guedes',19900510,'60357586803','261583210', 'Av.Gov.Marios Covas Junior 34', '38145698', 'Maua', '11963524758',11, 'Scrum Master', 15000); 
+
+INSERT INTO infoFuncionarios
+VALUES (12, 'Giovani', 'Merces','Silva',20030401,'5258356420','52692321', 'Rua Cesar Fabiano 147', '08569241', 'São Paulo', '11969680425',22, 'ANALISTA CONTÁBIL', 6000); 
+
+INSERT INTO infoFuncionarios
+VALUES (4, 'Drauzio', 'Varela','Augusto',19881023,'50501335803','52596383', 'Rua Caçador Narciso 158', '08245340', 'Jundiai', '11969680475',37, 'Analista', 9000);
+
+INSERT INTO infoFuncionarios 
+VALUES (50, 'Luciana','Costa','Martins',20020425,'53832558420','525688420','Rua Giovani Marrocos 42','69692450', 'Rio de Janeiro', '21948560451', 11 , 'UX/UI DESIGNER', 2000);
+
+/* 21- Os operadores auxiliares podem ser utilizados com quais comandos SQL */
+
+SELECT CODFUN, PRIMEIRONOME, SALARIO + 250 FROM infoFuncionarios;
+
+/* 22- Faça uma simulação para apresentar uma consulta com as colunas (campos) CODFUN, NOME, SALÁRIO com uma dedução de salário de 7,5%. */ 
+
+SELECT CODFUN, PRIMEIRONOME, SALARIO - SALARIO * 0.075 FROM infoFuncionarios;
+
+/* 23- Apresente uma consulta de todos os campos (colunas) de todos os registros cuja função seja igual à analista.*/
+
+SELECT * FROM infoFuncionarios WHERE FUNCAO = 'Analista';
+
+/* 24- Apresentar uma consulta de todos os campos (colunas) de todos os registros cujo salário seja maior ou igual a R$ 1.700,00.*/
+
+SELECT * FROM infoFuncionarios WHERE SALARIO >= 1700;
+
+/* 25- Apresentar uma consulta de todos os campos (colunas) de todos os registros cujo salário seja maior que R$ 1.700,00.*/
+
+SELECT * FROM infoFuncionarios WHERE SALARIO > 1700;
+
+/* 26- Qual categoria de função é ideal para fazer cálculos matemáticos?
+R: SELECT
+
+27-  Qual categoria de função é ideal para realizar operações estatísticas ?
+R: 
+
+28- O que é agrupamento de dados?
+R: O objetivo do agrupamento é encontrar uma estrutura de grupos nos dados
+
+29- Qual é a finalidade da cláusula GROUP BY?
+ R: Combina registros com valores idênticos da lista de campos especificada em um único registro
+ 
+ 30- Como deve ser utilizada a cláusula GROUP BY?
+ R: Deve ser utilizada segundo um critério escolhido pelo utilizador, podendo depois ser aplicada uma função de grupo a cada um dos grupos
+ 
+ 31- O que é união de dados?
+ R: Combinar conjuntos de duas ou mais consultas
+ 
+ 32- O que é junção de tabelas?
+ R: As consultas podem acessar várias tabelas de uma vez ou acessar a mesma tabela, de modo que várias linhas da tabela estejam sendo processadas ao mesmo tempo.
+ 
+ 33- O que é visualização de tabelas?
+ R: Uma consulta que é executada em uma ou mais tabelas de banco de dados
+ 
+ 34- Quantas tabelas são necessárias, no mínimo, para estabelecer uma relação de junção?
+ R: Duas
+ 
+*/
+
+/* 
+35- Por meio de junção listar os nomes, os estados, os números das duplicatas e seus respectivos valores para todos os clientes residentes no estado de São Paulo.*/
+
+
+
+
+
+
+
+
+
+
